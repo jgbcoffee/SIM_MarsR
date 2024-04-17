@@ -4,6 +4,7 @@ LIBRARY DEPENDENCY:
     ((Marsr.o))
 *******************************************************************************/
 #include "../include/Marsr.hh"
+#include "sim_services/Integrator/include/integrator_c_intf.h"
 #include <math.h>
 #include <iostream>
 
