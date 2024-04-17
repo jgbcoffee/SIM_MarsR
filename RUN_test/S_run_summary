@@ -1,0 +1,51 @@
+
+===============================================================================
+General:
+
+Executable called = /home/ksiebold/trick_sims/SIM_MarsR/S_main_Linux_9.4_x86_64.exe
+Input file = RUN_test/input.py
+S_main build time = Sun Apr 14 16:45:31 2024
+Trick version = 19.6.0-beta
+
+===============================================================================
+Build time Environment:
+
+TRICK_CC = /usr/bin/gcc
+TRICK_CFLAGS = -Wall -Wmissing-prototypes -Wextra -Wshadow -Imodels
+TRICK_CONVERT_SWIG_FLAGS = 
+TRICK_CPFLAGS = 
+TRICK_CXX = /usr/bin/g++
+TRICK_CXXFLAGS = -Wall -Wextra -Wshadow -Imodels
+TRICK_DEBUG = 0
+TRICK_EDITOR = 
+TRICK_EXEC_LINK_LIBS = -lpthread -L/usr/lib/python3.8/config-3.8-x86_64-linux-gnu -L/usr/lib -lpython3.8 -lcrypt -lpthread -ldl  -lutil -lm -lm  -lpython3.8 -lcrypt -lpthread -ldl  -lutil -lm -lm    -ludunits2 -lrt -lm -ldl
+TRICK_EXT_LIB_DIRS = 
+TRICK_FORCE_32BIT = OFF
+TRICK_GTE_EXT = 
+TRICK_HOME = /home/ksiebold/trick
+TRICK_HOST_CPU = Linux_9.4_x86_64
+TRICK_HOST_CPU_USER_SUFFIX = 
+TRICK_HOST_TYPE = Linux
+TRICK_ICGFLAGS = 
+TRICK_ICG_COMPAT15 = 
+TRICK_ICG_EXCLUDE = 
+TRICK_ICG_IGNORE_TYPES = 
+TRICK_ICG_NOCOMMENT = 
+TRICK_LDFLAGS = 
+TRICK_MAKE = 
+TRICK_PATH = /home/ksiebold/trick/libexec/bin
+TRICK_PRINTER_NAME = 
+TRICK_PRINT_CMD = lpr
+TRICK_PYTHON_PATH = 
+TRICK_SFLAGS = 
+TRICK_SWIG_EXCLUDE = 
+TRICK_SYSTEM_CFLAGS = -isystem/home/ksiebold/trick/trick_source -isystem/home/ksiebold/trick/include -isystem/home/ksiebold/trick/include/trick/compat -DTRICK_VER=19 -DTRICK_MINOR=6 -fpic  -DUSE_ER7_UTILS_INTEGRATORS -fexceptions 
+TRICK_SYSTEM_CXXFLAGS = -isystem/home/ksiebold/trick/trick_source -isystem/home/ksiebold/trick/include -isystem/home/ksiebold/trick/include/trick/compat -DTRICK_VER=19 -DTRICK_MINOR=6 -fpic  -DUSE_ER7_UTILS_INTEGRATORS 
+TRICK_SYSTEM_LDFLAGS = -Wl,--export-dynamic
+TRICK_USER_CSHRC = /home/ksiebold/.Trick_user_cshrc
+TRICK_USER_HOME = /home/ksiebold/trick_sims
+TRICK_USER_LINK_LIBS = 
+TRICK_USER_PROFILE = /home/ksiebold/.Trick_user_profile
+TRICK_VER = trick_dev
+XML_CATALOG_FILES = /home/ksiebold/trick/libexec/trick_source/data_products/DPX/XML/catalog.xml
+
