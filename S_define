@@ -1,0 +1,26 @@
+/************************************************************
+PURPOSE:
+    ( Simulate Mars Reacher )
+LIBRARY DEPENDENCIES:
+    ((marsr/src/Marsr.cpp))
+*************************************************************/
+#include "sim_objects/default_trick_sys.sm"
+##include "marsr/include/Marsr.hh"
+class MarsrSimObject : public Trick::SimObject {
+    public:
+    Marsr marsr;
+    MarsrSimObject() {
+        ("default_data")     marsr.default_data() ;
+        ("initialization")   marsr.state_init() ;
+        ("derivative")       marsr.state_deriv() ;
+        ("integration") trick_ret = marsr.state_integ() ;
+    }
+};
+
+MarsrSimObject dyn;
+
+IntegLoop dyn_integloop (0.01) dyn;
+
+void create_connections() {
+    dyn_integloop.getIntegrator(Runge_Kutta_4, 10);
+}
