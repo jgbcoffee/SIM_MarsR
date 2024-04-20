@@ -45,22 +45,30 @@ int Marsr::state_deriv() {
 
     if (mass_fuel > 0) {
         mass_rate = -thrust_force / exhaust_vel;
-        if (mass_fuel + mass_rate * mission_time_rate < 0) { 
-            mass_rate = -mass_fuel / mission_time_rate;  // Mass rate to consume remaining fuel
+        if (mass_fuel + mass_rate * mission_time_rate < 0) {
+            mass_rate = -mass_fuel / mission_time_rate;  // Adjust mass rate to consume remaining fuel
         }
+        mass_fuel += mass_rate * mission_time_rate; // Update fuel mass
     } else {
         mass_rate = 0;
         thrust_force = 0;
     }
 
+    // Update total mass
     mass = mass_dry + mass_fuel;
+
+    // Compute acceleration
     acc[0] = env.gravity[0] + thrust_force * cos(phi) / mass;
     acc[1] = 0.0;
     acc[2] = env.gravity[2] + thrust_force * sin(phi) / mass;
     omega_dot = -steering_mag * env.maxSteer / env.inertia;
     
+    // Debugging output
+    std::cout << "Mass: " << mass << " kg, Mass Rate: " << mass_rate << " kg/s" << std::endl;
+
     return 0;
 }
+
 
 int Marsr::state_integ() {
     // Perform state integration
@@ -79,6 +87,10 @@ int Marsr::state_integ() {
     // Update to mass post integration to reflect changes in mass_fuel
     mass = mass_dry + mass_fuel;
 
+    // Debugging output
+    std::cout << "Post-Integration Mass: " << mass << " kg" << std::endl;
+
     return integration_step;
 }
+
 
