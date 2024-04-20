@@ -38,15 +38,15 @@ int Marsr::state_init() {
 }
 
 int Marsr::state_deriv() {
-    // Update physics calculations
+    // Physics calculations
     thrust_mag = motor.thrust_magnitude(mission_time);
     steering_mag = motor.steer_magnitude(mission_time);
     thrust_force = thrust_mag * env.maxThrust;
 
     if (mass_fuel > 0) {
         mass_rate = -thrust_force / exhaust_vel;
-        if (mass_fuel + mass_rate * mission_time_rate < 0) { // Assuming integration_time_step is your time step for integration
-            mass_rate = -mass_fuel / mission_time_rate;  // Adjust mass rate to consume remaining fuel
+        if (mass_fuel + mass_rate * mission_time_rate < 0) { 
+            mass_rate = -mass_fuel / mission_time_rate;  // Mass rate to consume remaining fuel
         }
     } else {
         mass_rate = 0;
@@ -76,7 +76,7 @@ int Marsr::state_integ() {
                  &velocity[0], &velocity[1], &velocity[2],
                  &phi, &omega, &mass_fuel, (double *)0);
 
-    // Update to mass post integration to reflect any changes in mass_fuel
+    // Update to mass post integration to reflect changes in mass_fuel
     mass = mass_dry + mass_fuel;
 
     return integration_step;
