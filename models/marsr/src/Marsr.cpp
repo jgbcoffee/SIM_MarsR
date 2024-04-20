@@ -26,7 +26,7 @@ int Marsr::default_data() {
     omega = 0.0;
     mass_dry = 2000;
     mass_fuel = 8000;
-    exhaust_vel = 2500;
+    exhaust_vel = 3087.322; // Reflects MarsR
     mass = mass_dry + mass_fuel;
     return 0;
 }
@@ -45,6 +45,9 @@ int Marsr::state_deriv() {
 
     if (mass_fuel > 0) {
         mass_rate = -thrust_force / exhaust_vel;
+        if (mass_fuel + mass_rate * integration_time_step < 0) { // Assuming integration_time_step is your time step for integration
+            mass_rate = -mass_fuel / integration_time_step;  // Adjust mass rate to consume remaining fuel
+        }
     } else {
         mass_rate = 0;
         thrust_force = 0;
@@ -66,12 +69,16 @@ int Marsr::state_integ() {
                &velocity[0], &velocity[1], &velocity[2],
                &phi, &omega, &mass_fuel, (double *)0);
     load_deriv(&mission_time_rate, &velocity[0], &velocity[1], &velocity[2],
-               &acc[0], &acc[1], &acc[2], &omega, &omega_dot, &mass_rate, (double *)0);
+               &acc[0], &acc[1], &acc[2], &omega_dot, &mass_rate, (double *)0);
 
     integration_step = integrate();
     unload_state(&mission_time, &position[0], &position[1], &position[2],
                  &velocity[0], &velocity[1], &velocity[2],
                  &phi, &omega, &mass_fuel, (double *)0);
 
+    // Update to mass post integration to reflect any changes in mass_fuel
+    mass = mass_dry + mass_fuel;
+
     return integration_step;
 }
+

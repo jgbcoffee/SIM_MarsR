@@ -12,7 +12,7 @@ int Environment::default_data(double altitude) {
     gravity[2] = g_0 * pow(r_0 / (r_0 + altitude), 2);
     inertia = 200;        /* kg*m^2 */
     cd = 500;             /* 1 */
-    maxThrust = 200000;   /* N */
+    maxThrust = 845000;   /* N  Updated for MarsR*/
     maxSteer = 50;        /* N*m */
     steerDamp = 500;      /* N*s/m */
     
