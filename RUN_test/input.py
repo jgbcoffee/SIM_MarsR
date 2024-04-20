@@ -3,10 +3,10 @@ exec(open("Modified_data/testdr.dr").read())
 
 
 # Environment and parameters
-dyn.marsr.env.gravity         = [0.0, 0.0, -1.62]
+# dyn.marsr.env.gravity         = [0.0, 0.0, -1.62]
 dyn.marsr.env.inertia         = 200    
 dyn.marsr.env.cd              = 0.2          
-dyn.marsr.env.maxThrust       = 200000   
+dyn.marsr.env.maxThrust       = 845000 
 dyn.marsr.env.maxSteer        = 20    
 dyn.marsr.env.steerDamp       = 20   
 
