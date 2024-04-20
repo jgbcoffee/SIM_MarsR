@@ -8,7 +8,6 @@ LIBRARY DEPENDENCIES:
 
 #include "Environment.hh"
 #include "Motor.hh"
-#include <string>
 
 class Marsr {
 public:
@@ -34,13 +33,12 @@ public:
     double mass_fuel;          /* kg   fuel mass                */
     double mass_rate;          /* kg/s fuel rate                */
     double exhaust_vel;        /* m/s  exhaust velocity         */
-    std::string debug_log;     // To keep debug logs if needed
+
 
     int default_data();
     int state_init();
     int state_deriv();
     int state_integ();
-    void log_debug(const std::string& message); // Method to log debugging information
 
     Marsr();                   // Constructor
     ~Marsr();                  // Destructor

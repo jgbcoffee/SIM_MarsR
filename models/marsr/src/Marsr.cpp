@@ -63,9 +63,6 @@ int Marsr::state_deriv() {
     acc[2] = env.gravity[2] + thrust_force * sin(phi) / mass;
     omega_dot = -steering_mag * env.maxSteer / env.inertia;
     
-    // Debugging output
-    std::cout << "Mass: " << mass << " kg, Mass Rate: " << mass_rate << " kg/s" << std::endl;
-
     return 0;
 }
 
@@ -86,9 +83,6 @@ int Marsr::state_integ() {
 
     // Update to mass post integration to reflect changes in mass_fuel
     mass = mass_dry + mass_fuel;
-
-    // Debugging output
-    std::cout << "Post-Integration Mass: " << mass << " kg" << std::endl;
 
     return integration_step;
 }
