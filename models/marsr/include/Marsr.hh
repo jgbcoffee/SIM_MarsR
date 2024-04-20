@@ -40,7 +40,5 @@ public:
     int state_deriv();
     int state_integ();
 
-    Marsr();                   // Constructor
-    ~Marsr();                  // Destructor
 };
 #endif
