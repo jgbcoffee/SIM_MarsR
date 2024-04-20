@@ -13,7 +13,7 @@ dyn.marsr.env.steerDamp       = 20
 
 # Motor and steering
 # dyn.marsr.motor.sample_time_array    = [0  ,     12,   24,     36,  48,  60,  72,  84,  96,  108,  120]
-dyn.marsr.motor.thrust_sample_values = [0.5,      2,  1.5,      1,   1,   1,   1,   1,   0,    0,    0]
+dyn.marsr.motor.thrust_sample_values = [1,      1,  1,      1,   1,   1,   1,   1,   1,    1,    1]
 dyn.marsr.motor.steer_sample_values  = [0  ,  0.001,    0, -0.001,   0,   0,   0,   0,   0,    0,    0]
 
 
@@ -36,4 +36,4 @@ dyn.marsr.mission_time_rate = 0.01
 
 
 
-trick.exec_set_terminate_time(120.0)
+trick.exec_set_terminate_time(500.0)
