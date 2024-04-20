@@ -4,7 +4,7 @@
 
 #define NUM_ELEMENTS 11
 const double sample_time_array[NUM_ELEMENTS] = {
-0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120};
+0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500};
 
 const double thrust_array[NUM_ELEMENTS] = {
   0, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.4, 0};
