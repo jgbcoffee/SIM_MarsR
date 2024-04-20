@@ -45,8 +45,8 @@ int Marsr::state_deriv() {
 
     if (mass_fuel > 0) {
         mass_rate = -thrust_force / exhaust_vel;
-        if (mass_fuel + mass_rate * integration_time_step < 0) { // Assuming integration_time_step is your time step for integration
-            mass_rate = -mass_fuel / integration_time_step;  // Adjust mass rate to consume remaining fuel
+        if (mass_fuel + mass_rate * mission_time_rate < 0) { // Assuming integration_time_step is your time step for integration
+            mass_rate = -mass_fuel / mission_time_rate;  // Adjust mass rate to consume remaining fuel
         }
     } else {
         mass_rate = 0;
