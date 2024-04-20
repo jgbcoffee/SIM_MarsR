@@ -24,8 +24,8 @@ int Marsr::default_data() {
     velocity[2] = 0.0;
     phi = 0.0;
     omega = 0.0;
-    mass_dry = 2000;
-    mass_fuel = 8000;
+    mass_dry = 29620; // Reflects MarsR
+    mass_fuel = 228880; // Reflects MarsR
     exhaust_vel = 3087.322; // Reflects MarsR
     mass = mass_dry + mass_fuel;
     return 0;
