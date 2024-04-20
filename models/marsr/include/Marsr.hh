@@ -15,10 +15,11 @@ public:
     Motor motor;
 
     double thrust_force;
-    double drag_force[3];
-    double total_force[3];
+    double drag_force[3];      // Although not used in the provided .cpp snippet, assuming it's part of the physical model
+    double total_force[3];     // Total forces on the Marsr (not fully implemented in the provided .cpp snippet)
     double thrust_mag;
     double steering_mag;
+    double gravity[3];         // Gravity vector to be calculated in state_deriv
 
     double mission_time;       /* s    time elapsed since launch */
     double mission_time_rate;
@@ -34,7 +35,6 @@ public:
     double mass_rate;          /* kg/s fuel rate                */
     double exhaust_vel;        /* m/s  exhaust velocity         */
 
-
     int default_data();
     int state_init();
     int state_deriv();
@@ -42,3 +42,4 @@ public:
 
 };
 #endif
+

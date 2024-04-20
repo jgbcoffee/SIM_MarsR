@@ -1,5 +1,5 @@
 /********************************* TRICK HEADER *******************************
-PURPOSE: ( Simulate a marsr. )
+PURPOSE: (Simulate a Mars rover.)
 LIBRARY DEPENDENCY:
     ((Marsr.o))
 *******************************************************************************/
@@ -8,9 +8,12 @@ LIBRARY DEPENDENCY:
 #include <math.h>
 #include <iostream>
 
+// Constants
+const double g_0 = -1.62; // Standard gravity on Mars at a reference altitude
+const double r_0 = 1737.0e3; // Moon's mean radius in meters
+
 int Marsr::default_data() {
     // Initialize the environment using the current altitude
-    env.default_data(position[2]);
     motor.default_data();
 
     // Initialize other Marsr properties
@@ -28,6 +31,12 @@ int Marsr::default_data() {
     mass_fuel = 228880; // Reflects MarsR
     exhaust_vel = 3087.322; // Reflects MarsR
     mass = mass_dry + mass_fuel;
+
+    // Initialize gravity vector
+    gravity[0] = 0.0;
+    gravity[1] = 0.0;
+    gravity[2] = g_0 * pow(r_0 / (r_0 + position[2]), 2);
+
     return 0;
 }
 
@@ -54,18 +63,17 @@ int Marsr::state_deriv() {
         thrust_force = 0;
     }
 
-    // Update total mass
-    mass = mass_dry + mass_fuel;
+    // Update gravity vector based on the current altitude
+    gravity[2] = g_0 * pow(r_0 / (r_0 + position[2]), 2); // Gravity component in the z-direction
 
     // Compute acceleration
-    acc[0] = env.gravity[0] + thrust_force * cos(phi) / mass;
+    acc[0] = gravity[0] + thrust_force * cos(phi) / mass;
     acc[1] = 0.0;
-    acc[2] = env.gravity[2] + thrust_force * sin(phi) / mass;
+    acc[2] = gravity[2] + thrust_force * sin(phi) / mass;
     omega_dot = -steering_mag * env.maxSteer / env.inertia;
     
     return 0;
 }
-
 
 int Marsr::state_integ() {
     // Perform state integration
@@ -86,5 +94,3 @@ int Marsr::state_integ() {
 
     return integration_step;
 }
-
-
