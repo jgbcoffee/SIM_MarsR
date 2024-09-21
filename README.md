@@ -22,7 +22,7 @@ The Sim Control Panel, and a GUI called "Lander Range" should appear.
 
 Click the Start on the Trick Sim Control Panel.
 
-![Graphics CLient Showing Lander on the ground](images/LanderInitial.png)
+![Graphics CLient Showing Lander on the ground](images/initial.PNG)
 
 Using the controls shown below have fun!
 
