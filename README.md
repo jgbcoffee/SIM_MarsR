@@ -1,5 +1,5 @@
 # SIM_lander
-![Graphics CLient Showing Lander on the ground](images/Lander.png)
+![Graphics CLient Showing Lander on the ground](images/marsR.png)
 
 
 SIM_lander simulates a lunar lander, with manual and automatic controls.
